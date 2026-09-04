@@ -482,7 +482,7 @@ footer small{color:var(--mut);font-size:12.5px;font-family:var(--mono)}
           <span class="ib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg></span>
           <span><small>E-mail</small><b>matheus.avelinodejesus@hotmail.com</b></span>
         </a>
-        <a class="panel b ct-item b rv" href="https://wa.me/5511984024289" target="_blank" rel="noopener">
+        <a class="panel b ct-item b rv" id="walink" href="https://wa.me/5511984024289" target="_blank" rel="noopener">
           <span class="ib"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15.05L2 22l5.1-1.33A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.18-1.15l-.3-.18-3.03.79.81-2.95-.2-.31A8.2 8.2 0 1112 20.2zm4.5-6.13c-.25-.13-1.46-.72-1.68-.8-.23-.09-.39-.13-.56.12s-.64.8-.78.97c-.15.16-.29.18-.53.06a6.7 6.7 0 01-1.98-1.22 7.4 7.4 0 01-1.37-1.7c-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.12-.15.16-.25.24-.42.08-.16.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.41-.56-.42h-.47c-.16 0-.43.06-.65.31-.22.25-.85.83-.85 2.03s.87 2.35.99 2.51c.12.16 1.71 2.61 4.14 3.66.58.25 1.03.4 1.38.51.58.19 1.11.16 1.53.1.47-.07 1.46-.6 1.66-1.17.21-.58.21-1.07.15-1.17-.06-.11-.22-.17-.47-.29z"/></svg></span>
           <span><small data-i18n="ct.phone">Telefone / WhatsApp</small><b>(11) 98402-4289</b></span>
         </a>
@@ -766,6 +766,8 @@ function renderEdu(){
 function applyLang(){
   document.documentElement.lang=LANG==='en'?'en':'pt-BR';
   document.querySelectorAll('[data-i18n]').forEach(el=>{const v=T(el.dataset.i18n);if(v!==undefined)el.innerHTML=v});
+  const wl=document.getElementById('walink');
+  if(wl) wl.href='https://wa.me/5511984024289?text='+encodeURIComponent(LANG==='en'?"Hi Matheus! I saw your portfolio and I'd like to talk about an opportunity.":'Ola, Matheus! Vi seu portfolio e gostaria de conversar sobre uma oportunidade.');
   renderSkills();renderSegments();renderHighlights();renderFilters();renderProjects();renderTimeline();renderEdu();
   typedStart();observeAll();
 }
